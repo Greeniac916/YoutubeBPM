@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube BPM Meter
-// @version      1.1
+// @version      1.2
 // @updateURL    https://raw.githubusercontent.com/Greeniac916/YoutubeBPM/master/youtube-bpm.js
 // @description  Plugin adding beat counter to Youtube
 // @author       Greeniac916
@@ -11,7 +11,7 @@
 var playButton = $(".ytp-play-button");
 var bpmDelay = 0;
 var beats = 0;
-var interval;
+var interval, loadInt;
 
 function setup() {
 	//Create HTML String Elements
@@ -27,7 +27,7 @@ function setup() {
 	$("#bpm-header").append(submit);
 	$("#bpm-header").append(reset);
 	$("#bpm-header").append(output);
-	//Bind Submit and Reset Buttons
+	//Bind Buttons
 	$("#bpm-btn").bind("click", function() {
 		var bpm = $("#bpm-input")[0].value;
 		bpmDelay = 60000 / bpm; //Converts BPM to milisecond intervals
@@ -52,8 +52,29 @@ function counter() {
 		}
 	}, bpmDelay);
 }
+
+function waitForElement(elementPath, callBack){
+  window.setTimeout(function(){
+    if($(elementPath).length){
+      callBack(elementPath, $(elementPath));
+    }else{
+      waitForElement(elementPath, callBack);
+    }
+  },500);
+}
+
+function load() {
+    console.log("Loading plugin.");
+    playButton.click();
+    setup();
+    $(".video-list-item").bind("click", function() {
+        waitForElement("#progress", function() {
+            waitForElement("#eow-title", load);
+        });
+    });
+}
+
 (function() {
 	'use strict';
-	playButton.click();
-	setup();
+    load();
 })();
