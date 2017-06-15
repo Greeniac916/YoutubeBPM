@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube BPM Meter
-// @version      1.0
+// @version      1.1
 // @updateURL    https://raw.githubusercontent.com/Greeniac916/YoutubeBPM/master/youtube-bpm.js
 // @description  Plugin adding beat counter to Youtube
 // @author       Greeniac916
