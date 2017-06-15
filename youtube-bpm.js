@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube BPM Meter
-// @version      1.2
+// @version      1.3
 // @updateURL    https://raw.githubusercontent.com/Greeniac916/YoutubeBPM/master/youtube-bpm.js
 // @description  Plugin adding beat counter to Youtube
 // @author       Greeniac916
@@ -67,7 +67,7 @@ function load() {
     console.log("Loading plugin.");
     playButton.click();
     setup();
-    $(".video-list-item").bind("click", function() {
+    $("#watch7-sidebar-contents").bind("click", function() {
         waitForElement("#progress", function() {
             waitForElement("#eow-title", load);
         });
