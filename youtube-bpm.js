@@ -4,7 +4,7 @@
 // @updateURL    https://raw.githubusercontent.com/Greeniac916/YoutubeBPM/master/youtube-bpm.js
 // @description  Plugin adding beat counter to Youtube
 // @author       Greeniac916
-// @match        https://www.youtube.com/watch*
+// @match        https://www.youtube.com/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
@@ -67,7 +67,12 @@ function load() {
     console.log("Loading plugin.");
     playButton.click();
     setup();
-    $("#watch7-sidebar-contents").bind("click", function() {
+    $(".video-list-item").bind("click", function() {
+        waitForElement("#progress", function() {
+            waitForElement("#eow-title", load);
+        });
+    });
+    $(".yt-lockup").bind("click", function() {
         waitForElement("#progress", function() {
             waitForElement("#eow-title", load);
         });
