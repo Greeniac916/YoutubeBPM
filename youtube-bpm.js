@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Youtube BPM Meter
-// @namespace    http://tampermonkey.net/
-// @version      1
-// @description  try to take over the world!
+// @version      1.0
+// @updateURL    https://raw.githubusercontent.com/Greeniac916/YoutubeBPM/master/youtube-bpm.js
+// @description  Plugin adding beat counter to Youtube
 // @author       Greeniac916
 // @match        https://www.youtube.com/watch*
 // @grant        none
